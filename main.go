@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"runtime"
+
 	// "runtime/pprof"
 	"sync"
 	"syscall"
@@ -40,6 +41,7 @@ func main() {
 	parseConfig(cmdLineConfig.RcFile, cmdLineConfig)
 
 	initSelfListenAddr()
+
 	initLog()
 	initAuth()
 	initSiteStat()

@@ -40,15 +40,16 @@ var (
 
 func init() {
 	flag.BoolVar((*bool)(&info), "info", true, "info log")
-	flag.BoolVar((*bool)(&debug), "debug", false, "debug log, with this option, log goes to stdout with color")
+	flag.BoolVar((*bool)(&debug), "debug", true, "debug log, with this option, log goes to stdout with color")
 	flag.BoolVar((*bool)(&errl), "err", true, "error log")
-	flag.BoolVar((*bool)(&dbgRq), "request", false, "request log")
-	flag.BoolVar((*bool)(&dbgRep), "reply", false, "reply log")
-	flag.BoolVar(&verbose, "v", false, "more info in request/response logging")
-	flag.BoolVar(&colorize, "color", false, "colorize log output")
+	flag.BoolVar((*bool)(&dbgRq), "request", true, "request log")
+	flag.BoolVar((*bool)(&dbgRep), "reply", true, "reply log")
+	flag.BoolVar(&verbose, "v", true, "more info in request/response logging")
+	flag.BoolVar(&colorize, "color", true, "colorize log output")
 }
 
 func initLog() {
+
 	logFile = os.Stdout
 	if config.LogFile != "" {
 		if f, err := os.OpenFile(expandTilde(config.LogFile),
